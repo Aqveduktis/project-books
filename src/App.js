@@ -1,8 +1,13 @@
 import React from 'react'
 import { BookList } from 'components/BookList'
+import { Header } from 'components/Header'
 
 export const App = () => {
   return (
-    <BookList />
+    <div>
+      <Header />
+      <BookList />
+    </div>
+   
   )
 }

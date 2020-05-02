@@ -1,4 +1,14 @@
 import React, { useState, useEffect } from 'react'
+import styled from 'styled-components'
+import { Card } from './Card';
+
+const Section = styled.section`
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: center;
+`
+
 
 export const BookList = () => {
 const [books, setBooks] = useState([])
@@ -9,11 +19,10 @@ fetch('https://express-books-aqv.herokuapp.com/books')
 
 },[])
   return(
-    <section>
-    hello world
+    <Section>
     {books && 
-      books.map((item)=>(<p>{item.title}</p>))
+      books.map((item)=>(<Card object={item} />))
     }
-    </section>
+    </Section>
   )
 }
