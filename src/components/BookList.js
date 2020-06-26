@@ -12,17 +12,23 @@ align-items: center;
 
 export const BookList = () => {
 const [books, setBooks] = useState([])
-useEffect(()=>{
+useEffect( ()=>{
 fetch('https://express-books-aqv.herokuapp.com/books')
-  .then(response => response.json())
-  .then(data => setBooks(data));
+.then(res=>res.json())
+.then(json => setBooks(json.books))
+
 
 },[])
+console.log(books)
   return(
-    <Section>
-    {books && 
+    <section className="container">
+    {books.length && 
       books.map((item)=>(<Card object={item} />))
     }
-    </Section>
+    </section>
   )
 }
+// const response = await fetch('https://express-books-aqv.herokuapp.com/books');
+// const data = await response.json();
+// console.log(data)
+// setBooks(data.books)

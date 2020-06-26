@@ -1,0 +1,21 @@
+$primary: indigo;
+$secondary: pink;
+
+@mixin displayFlex ($type) {
+  display: flex;
+  flex-direction: $type;
+  justify-content: center;
+  align-items: center;
+} 
+.container {
+  width: 95vw;
+  margin: auto;
+  @include displayFlex(row);
+  flex-wrap: wrap;
+}
+.bookCard {
+  @include displayFlex(column);
+  background-color: teal;
+  width: 400px;
+  margin: 20px auto;
+}
